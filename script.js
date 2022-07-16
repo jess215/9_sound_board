@@ -1,13 +1,13 @@
 const sounds = [
-  'cat',
+  'wakey',
   'dog',
   'hello',
-  'hey',
+  'jimin',
   'girls',
   'friends',
   'pika',
   'tram',
-  'wakey',
+  'cat',
 ]
 
 sounds.forEach((sound) => {
@@ -16,5 +16,20 @@ sounds.forEach((sound) => {
 
   btn.innerText = sound
 
+  btn.addEventListener('click', () => {
+    // stopSongs()
+
+    document.getElementById(sound).play()
+  })
+
   document.getElementById('buttons').appendChild(btn)
 })
+
+function stopSongs() {
+  sounds.forEach((sound) => {
+    const song = document.getElementById(sound)
+
+    song.pause()
+    song.currentTime = 0
+  })
+}
